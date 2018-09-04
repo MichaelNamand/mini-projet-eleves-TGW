@@ -1,0 +1,10 @@
+.sidenav-container {
+  height: 100%;
+  background: #f2f2f2;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+

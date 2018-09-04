@@ -1,0 +1,28 @@
+<app-navigation>
+    <mat-tab-group>
+      <mat-tab label="Mes étudiants">
+        <div class="container">
+          <mat-card class="mt-md-3 mt-1">
+            <h5>Espace de gestion des étudiants <br><small class="text-muted">Cliquez sur un étudiant pour modifier ses informations</small></h5>
+          </mat-card>
+          <mat-card class="mat-elevation-z4 mt-md-3 mt-1 p-0">
+            <app-students-table [students]="students"></app-students-table>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab label="Créer un étudiant"  class="container">
+
+        <div class="container">
+          <mat-card class="mt-md-3 mt-1">
+            <h5>Espace de création d'un nouvel étudiant <br><small class="text-muted">Veuillez remplir le formulaire ci-dessous</small></h5>
+          </mat-card>
+          <mat-card class="mt-md-3 mt-1">
+            <app-create></app-create>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab label="Statistiques"  class="container">
+        <div class="container"></div>
+      </mat-tab>
+    </mat-tab-group>
+</app-navigation>

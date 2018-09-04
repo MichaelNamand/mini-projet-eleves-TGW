@@ -1,0 +1,36 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "first_name": "Michael",
+      "last_name": "Namand",
+      "birthday": "28/07/1995",
+      "formation": "Ingétis ESI4",
+      "email": "mickiya@gmail.com"
+    },
+    {
+      "id": 2,
+      "first_name": "Jean",
+      "last_name": "Bernard",
+      "birthday": "29/06/1996",
+      "formation": "Ingétis ESI3",
+      "email": "jean@gmail.com"
+    },
+    {
+      "id": 3,
+      "first_name": "Yves",
+      "last_name": "Bernard",
+      "birthday": "29/06/1996",
+      "formation": "Ingétis ESI3",
+      "email": "yves@gmail.com"
+    },
+    {
+      "id": 4,
+      "first_name": "Yves",
+      "last_name": "Bernard",
+      "birthday": "29/06/1996",
+      "formation": "Ingétis ESI3",
+      "email": "yves@gmail.com"
+    }
+  ]
+}
