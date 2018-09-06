@@ -42,5 +42,8 @@ export class HomeComponent implements OnInit {
             console.log('here');
             this.getStudents();
         }
+        if (event.tab.textLabel === 'Statistiques') {
+            this.studentService.refresh.emit();
+        }
     }
 }

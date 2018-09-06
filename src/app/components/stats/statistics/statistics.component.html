@@ -1,7 +1,7 @@
 <p>Nombre d'étudiants inscrits par formation</p>
   <ngx-charts-bar-vertical *ngIf="dataFormation.length > 0" class="w-100"
                            [scheme]="colorScheme"
-                           [view]="['320', '300']"
+                           [view]="view"
                            [results]="dataFormation"
                            [gradient]="gradient"
                            [xAxis]="showXAxis"

@@ -34,7 +34,9 @@ export class AppComponent {
             return array;
         }
     }
-
+    static getX() {
+        return window.innerWidth;
+    }
 
     static sortByProperty(objArray: Array<any>, prop, direction) {
         switch (prop) {

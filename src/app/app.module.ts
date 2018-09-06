@@ -19,7 +19,7 @@ import {
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ShowOnDirtyErrorStateMatcher, ErrorStateMatcher, MAT_DATE_LOCALE, MatSnackBarModule, MatDialogModule
+    ShowOnDirtyErrorStateMatcher, ErrorStateMatcher, MAT_DATE_LOCALE, MatSnackBarModule, MatDialogModule, MatSelectModule
 } from '@angular/material';
 import { StudentsTableComponent } from './components/students-table/students-table.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -32,8 +32,9 @@ import {ROUTING} from './app.routing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ModifyDialogComponent } from './components/modify-dialog/modify-dialog.component';
 import {StudentService} from './components/students-table/student.service';
-import { StatisticsComponent } from './components/statistics/statistics.component';
+import { StatisticsComponent } from './components/stats/statistics/statistics.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { StatisticAgeComponent } from './components/stats/statistic-age/statistic-age.component';
 
 @NgModule({
     declarations: [
@@ -43,10 +44,12 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
         HomeComponent,
         FormStudentComponent,
         ModifyDialogComponent,
-        StatisticsComponent
+        StatisticsComponent,
+        StatisticAgeComponent
     ],
     imports: [
         CommonModule,
+        MatSelectModule,
         ReactiveFormsModule,
         BrowserModule, ROUTING,
         HttpClientModule,

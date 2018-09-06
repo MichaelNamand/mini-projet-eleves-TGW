@@ -1,13 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../../../api.service';
-import {AppComponent} from '../../../app.component';
 import {StudentService} from '../../students-table/student.service';
+import {AppComponent} from '../../../app.component';
+
 @Component({
-    selector: 'app-statistics',
-    templateUrl: './statistics.component.html',
-    styleUrls: ['./statistics.component.css']
+  selector: 'app-statistic-age',
+  templateUrl: './statistic-age.component.html',
+  styleUrls: ['./statistic-age.component.css']
 })
-export class StatisticsComponent {
+export class StatisticAgeComponent {
+
     dataFormation: any[]  = [];
     // options
     view = [450, 350];
@@ -16,7 +18,7 @@ export class StatisticsComponent {
     gradient = false;
     showLegend = false;
     showXAxisLabel = true;
-    xAxisLabel = 'Formation';
+    xAxisLabel = 'Age';
     showYAxisLabel = true;
     yAxisLabel = 'Etudiants';
 
@@ -24,39 +26,47 @@ export class StatisticsComponent {
         domain: ['#3f51b5']
     };
 
+
     single: any[];
 
     constructor(private api: ApiService, private studentService: StudentService) {
         this.getData();
         this.studentService.refresh.subscribe(() => {
             this.dataFormation = [];
-            this.getData()
+            this.getData();
         });
     }
 
+    calculateAge(birthday: string) { // birthday is a date
+      const bDate = new Date(birthday);
+        const ageDifMs = Date.now() - bDate.getTime();
+        const ageDate = new Date(ageDifMs); // miliseconds from epoch
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+
     getData() {
-        this.dataFormation = [];
+      this.dataFormation = [];
         this.api.getAllStudents().subscribe(
             s => {
-                s = AppComponent.sortByProperty(s, 'formation', 1);
+                s = AppComponent.sortByProperty(s, 'birthday', 1);
                 console.log(s);
 
-                let name = s[0].formation;
+                let name = this.calculateAge(s[0].birthday);
                 let value = 1;
                 for (let i = 0; i < s.length - 1; i++) {
-                    if (s[i].formation !== s[i + 1].formation) {
+                    if (this.calculateAge(s[i].birthday) !== this.calculateAge(s[i + 1].birthday)) {
                         this.dataFormation.push({
-                            'name' : name,
+                            'name' : name + ' ans',
                             'value': value
                         });
-                        name = s[i + 1].formation;
+                        name = this.calculateAge(s[i].birthday);
                         value = 1;
                     } else {
                         value++;
                     }
                     if (i == s.length - 2) {
                         this.dataFormation.push({
-                            'name' : name,
+                            'name' : name + ' ans',
                             'value': value
                         });
                     }
@@ -69,5 +79,4 @@ export class StatisticsComponent {
 
     onSelect(event) {
     }
-
 }

@@ -6,7 +6,7 @@ import {Student} from '../../../_models/Student';
 
 /**
  * Data source for the StudentsTable view. This class should
- * encapsulate all logic for fetching and manipulating the displayed data
+ * encapsulate all logic for fetching and manipulating the displayed dataFormation
  * (including sorting, pagination, and filtering).
  */
 export class StudentsTableDataSource extends DataSource<Student> {
@@ -18,13 +18,13 @@ export class StudentsTableDataSource extends DataSource<Student> {
   }
 
   /**
-   * Connect this data source to the table. The table will only update when
+   * Connect this dataFormation source to the table. The table will only update when
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
   connect(): Observable<Student[]> {
-    // Combine everything that affects the rendered data into one update
-    // stream for the data-table to consume.
+    // Combine everything that affects the rendered dataFormation into one update
+    // stream for the dataFormation-table to consume.
     const dataMutations = [
       observableOf(this.data),
       this.paginator.page,
@@ -46,8 +46,8 @@ export class StudentsTableDataSource extends DataSource<Student> {
   disconnect() {}
 
   /**
-   * Paginate the data (client-side). If you're using server-side pagination,
-   * this would be replaced by requesting the appropriate data from the server.
+   * Paginate the dataFormation (client-side). If you're using server-side pagination,
+   * this would be replaced by requesting the appropriate dataFormation from the server.
    */
   private getPagedData(data: Student[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
@@ -55,8 +55,8 @@ export class StudentsTableDataSource extends DataSource<Student> {
   }
 
   /**
-   * Sort the data (client-side). If you're using server-side sorting,
-   * this would be replaced by requesting the appropriate data from the server.
+   * Sort the dataFormation (client-side). If you're using server-side sorting,
+   * this would be replaced by requesting the appropriate dataFormation from the server.
    */
   private getSortedData(data: Student[]) {
     if (!this.sort.active || this.sort.direction === '') {

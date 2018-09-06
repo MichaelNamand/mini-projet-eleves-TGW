@@ -1,0 +1,15 @@
+<p>Répartition de l'âge des étudiants</p>
+<ngx-charts-bar-vertical *ngIf="dataFormation.length > 0" class="w-100"
+                         [scheme]="colorScheme"
+                         [view]="view"
+                         [results]="dataFormation"
+                         [gradient]="gradient"
+                         [xAxis]="showXAxis"
+                         [yAxis]="showYAxis"
+                         [legend]="showLegend"
+                         [showXAxisLabel]="showXAxisLabel"
+                         [showYAxisLabel]="showYAxisLabel"
+                         [xAxisLabel]="xAxisLabel"
+                         [yAxisLabel]="yAxisLabel"
+                         (select)="onSelect($event)">
+</ngx-charts-bar-vertical>
