@@ -54,6 +54,7 @@
   </div>
   <div class="text-right" *ngIf="!post">
     <button class="mr-3" mat-button mat-dialog-close>Annuler</button>
+    <button type="button" mat-raised-button color="primary" class="float-left" (click)="confirmDeletion()">SUPPRIMER</button>
     <button mat-raised-button color="primary" [disabled]="signupForm.invalid" >MODIFIER</button>
   </div>
 </form>

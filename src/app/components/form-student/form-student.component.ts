@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Student} from '../../../_models/Student';
 import {ApiService} from '../../api.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
+import {ConfirmDeletionComponent} from './confirm-deletion/confirm-deletion.component';
 
 @Component({
     selector: 'app-form-student',
@@ -25,6 +26,11 @@ export class FormStudentComponent implements OnChanges {
         if (!this.post && this.studentPatch) {
             this.student = JSON.parse(JSON.stringify(this.studentPatch));
         }
+    }
+
+    confirmDeletion() {
+        this.dialog.closeAll();
+        this.dialog.open(ConfirmDeletionComponent, {data: this.student});
     }
 
     resetFormControl() {

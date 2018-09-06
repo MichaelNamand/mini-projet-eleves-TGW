@@ -2,7 +2,7 @@
   "students": [
     {
       "last_name": "Namand",
-      "first_name": "Jessica",
+      "first_name": "Jessicaa",
       "email": "jessica@gmail.com",
       "formation": "Marketing",
       "birthday": "1994-07-13T22:00:00.000Z",
@@ -23,22 +23,6 @@
       "formation": "Informatique",
       "birthday": "1994-07-13T22:00:00.000Z",
       "id": 7
-    },
-    {
-      "first_name": "test",
-      "last_name": "test-",
-      "email": "test@test.fr",
-      "formation": "Gestion",
-      "birthday": "2018-09-03T22:00:00.000Z",
-      "id": 8
-    },
-    {
-      "first_name": "test",
-      "last_name": "test",
-      "email": "test@test.fr",
-      "formation": "Gestion",
-      "birthday": "1992-06-13T22:00:00.000Z",
-      "id": 9
     },
     {
       "first_name": "Mretj",

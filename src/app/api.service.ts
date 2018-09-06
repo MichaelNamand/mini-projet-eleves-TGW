@@ -36,6 +36,6 @@ export class ApiService {
 
     // DELETE /students/:id
     public deleteStudentById(studentId: number) {
-        // will use this.http.delete()
+        return this.http.delete(API_URL + 'students/' + studentId);
     }
 }

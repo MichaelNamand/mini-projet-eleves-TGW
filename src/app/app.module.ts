@@ -35,6 +35,7 @@ import {StudentService} from './components/students-table/student.service';
 import { StatisticsComponent } from './components/stats/statistics/statistics.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { StatisticAgeComponent } from './components/stats/statistic-age/statistic-age.component';
+import { ConfirmDeletionComponent } from './components/form-student/confirm-deletion/confirm-deletion.component';
 
 @NgModule({
     declarations: [
@@ -45,7 +46,8 @@ import { StatisticAgeComponent } from './components/stats/statistic-age/statisti
         FormStudentComponent,
         ModifyDialogComponent,
         StatisticsComponent,
-        StatisticAgeComponent
+        StatisticAgeComponent,
+        ConfirmDeletionComponent
     ],
     imports: [
         CommonModule,
@@ -74,7 +76,7 @@ import { StatisticAgeComponent } from './components/stats/statistic-age/statisti
         MatNativeDateModule,
         FormsModule
     ],
-    entryComponents: [ModifyDialogComponent],
+    entryComponents: [ModifyDialogComponent, ConfirmDeletionComponent],
     providers: [
         ApiService,
         {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
