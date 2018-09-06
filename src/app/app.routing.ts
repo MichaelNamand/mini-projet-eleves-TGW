@@ -1,7 +1,7 @@
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
-import {CreateComponent} from './components/create/create.component';
+import {FormStudentComponent} from './components/form-student/form-student.component';
 
 export const AppRoutes: Routes = [
     {path: '', component: HomeComponent}

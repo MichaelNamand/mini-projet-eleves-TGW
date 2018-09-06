@@ -1,0 +1,55 @@
+<form (submit)="postStudent()" [formGroup]="signupForm">
+  <div class="form-row">
+    <div class="col col-12 col-md-6">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Prénom de l'étudiant *</mat-label>
+        <input matInput placeholder="Insérer le Prénom ici..."  formControlName="firstName" name="fname" [(ngModel)]="student.first_name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error></mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col col-12 col-md-6">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Nom de l'étudiant *</mat-label>
+        <input matInput placeholder="Insérer le nom ici..." formControlName="lastName" name="lname" [(ngModel)]="student.last_name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Email *</mat-label>
+    <input matInput placeholder="Insérer l'email ici..." formControlName="email" name="email" [(ngModel)]="student.email">
+    <mat-icon matSuffix>alternate_email</mat-icon>
+    <mat-error *ngIf="signupForm.controls['email'].invalid && signupForm['controls'].email.touched">
+      Veuillez entrer un email valide !
+    </mat-error>
+  </mat-form-field>
+  <div class="form-row">
+    <div class="col col-12 col-md-8">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Formation de l'étudiant *</mat-label>
+        <input matInput placeholder="Insérer la formation en cours de l'étudiant ici..." name="formation" [(ngModel)]="student.formation"
+               formControlName="formation">
+        <mat-icon matSuffix>grade</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="col col-12 col-md-4">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Date de naissance de l'étudiant *</mat-label>
+        <input matInput [matDatepicker]="myDatepicker" name="birthday" [(ngModel)]="student.birthday" [max]="maxDate"
+               placeholder="Cliquer sur l'icône pour insérer une date" formControlName="birthday">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker startView="multi-year"></mat-datepicker>
+        <mat-error *ngIf="signupForm.controls['birthday'].invalid && signupForm.controls['birthday'].touched">Veuillez entrer une date valide !</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="text-right" *ngIf="post">
+    <button mat-raised-button color="primary" [disabled]="signupForm.invalid">CRÉER</button>
+  </div>
+  <div class="text-right" *ngIf="!post">
+    <button class="mr-3" mat-button mat-dialog-close>Annuler</button>
+    <button mat-raised-button color="primary" [disabled]="signupForm.invalid" >MODIFIER</button>
+  </div>
+</form>

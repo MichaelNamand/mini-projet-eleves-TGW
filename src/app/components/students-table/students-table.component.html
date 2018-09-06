@@ -3,40 +3,40 @@
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">
+      <td mat-cell *matCellDef="let row"  style="cursor: pointer;" (click)="openDialog(row)">
         <span class="mobile-label">Id :</span>
         {{row.id}}
       </td>
     </ng-container>
 
+    <ng-container matColumnDef="last_name" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+      <td mat-cell *matCellDef="let row"   style="cursor: pointer;" (click)="openDialog(row)">
+        <span class="mobile-label">Nom :</span>
+        {{row.last_name}}
+      </td>
+    </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="first_name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
-      <td mat-cell *matCellDef="let row">
-        <span class="mobile-label">Nom : </span>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Prénom</th>
+      <td mat-cell *matCellDef="let row"   style="cursor: pointer;" (click)="openDialog(row)">
+        <span class="mobile-label">Prénom : </span>
         {{row.first_name}}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="last_name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Prénom</th>
-      <td mat-cell *matCellDef="let row">
-        <span class="mobile-label">Prénom :</span>
-        {{row.last_name}}
-      </td>
-    </ng-container>
 
     <ng-container matColumnDef="birthday">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Date de naissance</th>
-      <td mat-cell *matCellDef="let row">
+      <td mat-cell *matCellDef="let row"   style="cursor: pointer;" (click)="openDialog(row)">
         <span class="mobile-label">Date de naissance :</span>
-        {{row.birthday}}
+        {{row.birthday | date: 'dd/MM/yyyy'}}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="formation">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Formation</th>
-      <td mat-cell *matCellDef="let row">
+      <td mat-cell *matCellDef="let row"   style="cursor: pointer;" (click)="openDialog(row)">
         <span class="mobile-label">Formation :</span>
         {{row.formation}}
       </td>
@@ -44,7 +44,7 @@
 
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
-      <td mat-cell *matCellDef="let row">
+      <td mat-cell *matCellDef="let row"   style="cursor: pointer;" (click)="openDialog(row)">
         <span class="mobile-label">Email :</span>
         {{row.email}}
       </td>

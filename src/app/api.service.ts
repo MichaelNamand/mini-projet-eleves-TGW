@@ -21,17 +21,17 @@ export class ApiService {
 
     // API: POST /students
     public createStudent(student: Student) {
-        // will use this.http.post()
+        return this.http.post<Student>(API_URL + 'students', student);
     }
 
     // API: GET /students/:id
     public getStudentById(studentId: number) {
-        // will use this.http.get()
+        return this.http.get<Student>(API_URL + 'students/' + studentId);
     }
 
     // API: PUT /students/:id
     public updateStudent(student: Student) {
-        // will use this.http.put()
+        return this.http.put<Student>(API_URL + 'students/' + student.id, student);
     }
 
     // DELETE /students/:id

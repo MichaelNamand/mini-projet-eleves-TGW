@@ -13,7 +13,13 @@ import {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatCardModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, DateAdapter, MatNativeDateModule
+    MatCardModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ShowOnDirtyErrorStateMatcher, ErrorStateMatcher, MAT_DATE_LOCALE, MatSnackBarModule, MatDialogModule
 } from '@angular/material';
 import { StudentsTableComponent } from './components/students-table/students-table.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -21,8 +27,13 @@ import {ApiService} from './api.service';
 import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import { HomeComponent } from './pages/home/home.component';
-import { CreateComponent } from './components/create/create.component';
+import { FormStudentComponent } from './components/form-student/form-student.component';
 import {ROUTING} from './app.routing';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ModifyDialogComponent } from './components/modify-dialog/modify-dialog.component';
+import {StudentService} from './components/students-table/student.service';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 @NgModule({
     declarations: [
@@ -30,15 +41,19 @@ import {ROUTING} from './app.routing';
         StudentsTableComponent,
         NavigationComponent,
         HomeComponent,
-        CreateComponent
+        FormStudentComponent,
+        ModifyDialogComponent,
+        StatisticsComponent
     ],
     imports: [
         CommonModule,
+        ReactiveFormsModule,
         BrowserModule, ROUTING,
         HttpClientModule,
         BrowserAnimationsModule,
         MatToolbarModule,
         LayoutModule,
+        NgxChartsModule,
         MatButtonModule,
         MatSidenavModule,
         MatTabsModule,
@@ -50,11 +65,18 @@ import {ROUTING} from './app.routing';
         MatListModule,
         MatTableModule,
         MatPaginatorModule,
+        MatDialogModule,
         MatSortModule,
-        MatNativeDateModule
+        MatSnackBarModule,
+        MatNativeDateModule,
+        FormsModule
     ],
+    entryComponents: [ModifyDialogComponent],
     providers: [
-        ApiService
+        ApiService,
+        {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
+        {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+        StudentService
     ],
     bootstrap: [AppComponent]
 })
